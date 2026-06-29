@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Exposición digital interactiva sobre John Locke — Derechos Naturales, Liberalismo y Poder Político" />
+  <meta name="theme-color" content="#1a0812" />
+  <title>John Locke · Exposición Digital Interactiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="progressBar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  <nav id="navbar" class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" data-section="hero">
+        <span class="logo-accent">✦</span> LOCKE
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir o cerrar menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu" role="menubar">
+        <li role="none"><a href="#biografia" class="nav-link" role="menuitem" data-section="biografia">Biografía</a></li>
+        <li role="none"><a href="#contexto" class="nav-link" role="menuitem" data-section="contexto">Contexto</a></li>
+        <li role="none"><a href="#derechos" class="nav-link" role="menuitem" data-section="derechos">Derechos</a></li>
+        <li role="none"><a href="#contrato" class="nav-link" role="menuitem" data-section="contrato">Contrato</a></li>
+        <li role="none"><a href="#poderes" class="nav-link" role="menuitem" data-section="poderes">Poderes</a></li>
+        <li role="none"><a href="#actualidad" class="nav-link" role="menuitem" data-section="actualidad">Actualidad</a></li>
+        <li role="none"><a href="#curiosidades" class="nav-link" role="menuitem" data-section="curiosidades">Curiosidades</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main class="app-viewport" id="appViewport">
+    <section id="hero" class="panel active" aria-label="Introducción" role="tabpanel">
+      <canvas id="particlesCanvas" class="hero-particles" aria-hidden="true"></canvas>
+      <div class="hero-overlay"></div>
+      <div class="hero-badge">1632 – 1704</div>
+      <div class="hero-content">
+        <p class="hero-overline">Política y Ciudadanía · Exposición Digital</p>
+        <h1 class="hero-title">John Locke</h1>
+        <p class="hero-subtitle" id="typewriter"></p>
+        <p class="hero-desc">Filósofo, médico y padre del liberalismo clásico. Sus ideas transformaron la política moderna.</p>
+        <div class="hero-actions">
+          <a href="#biografia" class="btn btn-primary" data-section="biografia">
+            <span>Explorar su legado</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#frases" class="btn btn-ghost" data-section="frases">
+            <span>Frases célebres</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Continuar</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+    <section id="biografia" class="panel" aria-label="Biografía de John Locke" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">01</span>
+        <h2 class="section-title">Biografía</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">La vida del hombre que desafió el absolutismo y sentó las bases del pensamiento liberal.</p>
+      </div>
+      <div class="panel-scroll">
+        <div class="bio-grid">
+          <div class="bio-text reveal">
+            <p class="bio-dropcap">John Locke nació el <strong>29 de agosto de 1632</strong> en <strong>Wrington, Somerset, Inglaterra</strong>, en el seno de una familia puritana. Su padre, abogado y capitán de caballería durante la guerra civil inglesa, inculcó en él los valores de la libertad y la resistencia frente a la tiranía.</p>
+            <p>Ingresó en la prestigiosa <strong>Westminster School</strong> y más tarde en <strong>Christ Church, Oxford</strong>, donde estudió filosofía natural, medicina y ciencias. Allí entró en contacto con las obras de <strong>Descartes, Bacon y Boyle</strong>, que moldearon su pensamiento empirista.</p>
+            <p>Su encuentro con <strong>Lord Anthony Ashley Cooper</strong> (primer conde de Shaftesbury) marcó un antes y un después. Locke se convirtió en su médico personal, secretario y asesor político. A través de él, participó activamente en los debates sobre el gobierno constitucional y los límites del poder real.</p>
+            <p>Perseguido por sus ideas tras el fracaso de la conspiración whig, Locke se exilió en <strong>Holanda</strong> entre 1683 y 1688. Allí escribió y perfeccionó sus obras capitales. Tras la <strong>Revolución Gloriosa</strong> de 1688, regresó a Inglaterra y publicó sus tratados, que se convirtieron en referencia del pensamiento político moderno.</p>
+            <p>Falleció el <strong>28 de octubre de 1704</strong> en Oates, Essex, rodeado de amigos y discípulos. Su legado intelectual, sin embargo, nunca ha muerto: sus ideas están en la base de las democracias constitucionales, los derechos humanos y el Estado de Derecho.</p>
+          </div>
+          <div class="bio-data">
+            <figure class="bio-portrait reveal">
+              <img src="img/locke-retrato.jpg" alt="Retrato de John Locke pintado por Godfrey Kneller en 1697" loading="lazy" width="724" height="1013" />
+              <figcaption>John Locke, por Godfrey Kneller (1697)</figcaption>
+            </figure>
+            <div class="data-card reveal" data-delay="0">
+              <span class="data-icon">📜</span>
+              <div>
+                <span class="data-label">Nacimiento</span>
+                <span class="data-value">29 ago 1632</span>
+              </div>
+            </div>
+            <div class="data-card reveal" data-delay="100">
+              <span class="data-icon">🎓</span>
+              <div>
+                <span class="data-label">Formación</span>
+                <span class="data-value">Oxford</span>
+              </div>
+            </div>
+            <div class="data-card reveal" data-delay="200">
+              <span class="data-icon">📖</span>
+              <div>
+                <span class="data-label">Obra magna</span>
+                <span class="data-value">1689 · Dos tratados</span>
+              </div>
+            </div>
+            <div class="data-card reveal" data-delay="300">
+              <span class="data-icon">⚰️</span>
+              <div>
+                <span class="data-label">Fallecimiento</span>
+                <span class="data-value">28 oct 1704</span>
+              </div>
+            </div>
+            <div class="data-card reveal" data-delay="400">
+              <span class="data-icon">🏛️</span>
+              <div>
+                <span class="data-label">Influencia</span>
+                <span class="data-value">EE.UU. · Francia</span>
+              </div>
+            </div>
+            <div class="data-card reveal" data-delay="500">
+              <span class="data-icon">🧠</span>
+              <div>
+                <span class="data-label">Corriente</span>
+                <span class="data-value">Empirismo · Liberalismo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contexto" class="panel" aria-label="Contexto histórico" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Contexto Histórico</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">La Inglaterra del siglo XVII: guerras, revoluciones y el nacimiento de la libertad moderna.</p>
+      </div>
+      <div class="panel-scroll">
+        <div class="context-grid">
+          <div class="context-text reveal">
+            <p>Locke vivió una de las épocas más convulsas de la historia británica. El <strong>siglo XVII</strong> fue un hervidero de conflictos políticos, religiosos y sociales que moldearon cada fibra de su pensamiento. La lucha entre la monarquía absoluta y el Parlamento, las guerras civiles y las tensiones religiosas entre anglicanos, puritanos y católicos crearon el caldo de cultivo para sus ideas.</p>
+            <p>La <strong>ejecución de Carlos I</strong> en 1649, la dictadura de <strong>Cromwell</strong>, la Restauración de la monarquía en 1660 y finalmente la <strong>Revolución Gloriosa</strong> de 1688 fueron los hitos que enmarcaron su vida. Locke no fue un espectador pasivo: participó, se exilió y escribió para justificar la resistencia contra la tiranía.</p>
+            <p>En este contexto, su propuesta de un <strong>gobierno limitado</strong> basado en el consentimiento de los gobernados no era solo teoría: era una necesidad urgente.</p>
+          </div>
+          <div class="context-stats reveal">
+            <div class="context-stat">
+              <span class="context-stat-num counter" data-target="1642">0</span>
+              <span class="context-stat-label">Inicio guerra civil</span>
+            </div>
+            <div class="context-stat">
+              <span class="context-stat-num counter" data-target="1688">0</span>
+              <span class="context-stat-label">Revolución Gloriosa</span>
+            </div>
+            <div class="context-stat">
+              <span class="context-stat-num counter" data-target="1689">0</span>
+              <span class="context-stat-label">Publicación clave</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-wrap reveal">
+          <div class="timeline-label">Línea del tiempo</div>
+          <div class="interactive-timeline" role="list">
+            <div class="tl-item" role="listitem" tabindex="0" data-year="1642">
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-content">
+                <span class="tl-year">1642</span>
+                <h4>Guerra Civil</h4>
+                <p>Carlos I vs. el Parlamento. La monarquía absoluta se enfrenta al poder legislativo.</p>
+                <span class="tl-tag">Conflicto político</span>
+              </div>
+            </div>
+            <div class="tl-item" role="listitem" tabindex="0" data-year="1651">
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-content">
+                <span class="tl-year">1651</span>
+                <h4>Leviatán de Hobbes</h4>
+                <p>Thomas Hobbes publica su defensa del absolutismo. Locke responderá defendiendo la libertad individual.</p>
+                <span class="tl-tag">Filosofía</span>
+              </div>
+            </div>
+            <div class="tl-item" role="listitem" tabindex="0" data-year="1660">
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-content">
+                <span class="tl-year">1660</span>
+                <h4>Restauración</h4>
+                <p>Carlos II regresa del exilio. Se restaura la monarquía con poderes limitados.</p>
+                <span class="tl-tag">Política</span>
+              </div>
+            </div>
+            <div class="tl-item" role="listitem" tabindex="0" data-year="1683">
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-content">
+                <span class="tl-year">1683</span>
+                <h4>Exilio de Locke</h4>
+                <p>Acusado de conspiración, huye a Holanda. En el exilio escribe y madura sus ideas.</p>
+                <span class="tl-tag">Exilio</span>
+              </div>
+            </div>
+            <div class="tl-item" role="listitem" tabindex="0" data-year="1688">
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-content">
+                <span class="tl-year">1688</span>
+                <h4>Revolución Gloriosa</h4>
+                <p>Guillermo de Orange destrona a Jacobo II. Se establece la <em>Bill of Rights</em>.</p>
+                <span class="tl-tag">Revolución</span>
+              </div>
+            </div>
+            <div class="tl-item" role="listitem" tabindex="0" data-year="1689">
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-content">
+                <span class="tl-year">1689</span>
+                <h4>Obra cumbre</h4>
+                <p>Publica los <em>Dos tratados sobre el gobierno civil</em> y la <em>Carta sobre la tolerancia</em>.</p>
+                <span class="tl-tag">Publicación</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="ser-humano" class="panel" aria-label="Visión del ser humano" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Visión del Ser Humano</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Libres, racionales e iguales por naturaleza. Así entendía Locke al individuo.</p>
+      </div>
+      <div class="panel-scroll">
+        <div class="philosophy-grid">
+          <article class="phil-card reveal glass">
+            <div class="phil-icon">
+              <svg viewBox="0 0 80 80"><circle cx="40" cy="16" r="8" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M40 24 L40 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M16 28 L40 38 L64 28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 48 L28 66 M40 48 L52 66" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Libres por naturaleza</h3>
+            <p>Locke rechaza la idea de que algunos nazcan para mandar y otros para obedecer. Todos nacemos <strong>libres e iguales</strong>. Ninguna autoridad natural existe entre los hombres; el poder solo es legítimo si se basa en el <strong>consentimiento</strong>.</p>
+          </article>
+          <article class="phil-card reveal glass">
+            <div class="phil-icon">
+              <svg viewBox="0 0 80 80"><path d="M52 36 Q52 18 40 14 Q28 18 28 36 Q28 46 36 52 Q36 58 36 62 L44 62 Q44 58 44 52 Q52 46 52 36Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><line x1="34" y1="66" x2="46" y2="66" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="40" y1="12" x2="40" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Capacidad racional</h3>
+            <p>El ser humano posee <strong>razón</strong>, la herramienta que le permite conocer la ley natural y distinguir el bien del mal. No necesitamos un soberano absoluto que nos guíe: podemos <strong>auto-gobernarnos</strong>.</p>
+          </article>
+          <article class="phil-card reveal glass">
+            <div class="phil-icon">
+              <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="28" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="40" cy="22" r="7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M26 58 Q26 44 40 44 Q54 44 54 58" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Derechos inherentes</h3>
+            <p>Cada persona posee derechos que no le son concedidos por el Estado: <strong>vida, libertad y propiedad</strong>. Son anteriores a cualquier sociedad política y el gobierno debe protegerlos.</p>
+          </article>
+          <article class="phil-card reveal glass">
+            <div class="phil-icon">
+              <svg viewBox="0 0 80 80"><circle cx="28" cy="30" r="10" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="52" cy="30" r="10" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="40" cy="56" r="10" fill="none" stroke="currentColor" stroke-width="2.5"/><line x1="34" y1="36" x2="36" y2="48" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="46" y1="36" x2="44" y2="48" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="38" y1="30" x2="42" y2="30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Sociable por necesidad</h3>
+            <p>El estado de naturaleza tiene <strong>inconvenientes</strong>: falta un juez imparcial. Por eso los individuos deciden <strong>asociarse</strong> mediante un contrato, creando una sociedad que proteja mejor sus derechos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="derechos" class="panel" aria-label="Derechos naturales" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Derechos Naturales</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Los pilares del pensamiento lockeano: derechos que el Estado no crea, sino que debe proteger.</p>
+      </div>
+      <div class="panel-scroll">
+        <p class="derechos-intro reveal">Para Locke, los derechos naturales son <strong>anteriores al Estado</strong>. Derivan de la propia naturaleza humana y son <strong>universales, inalienables e irrenunciables</strong>. El gobierno legítimo no los concede: tiene la obligación sagrada de protegerlos.</p>
+        <div class="rights-showcase">
+          <div class="right-card glass reveal" style="--accent:#e84393">
+            <div class="right-card-glow"></div>
+            <div class="right-icon-wrap">
+              <svg viewBox="0 0 100 100" class="right-svg">
+                <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c2185b"/><stop offset="100%" stop-color="#e84393"/></linearGradient></defs>
+                <path d="M50 78 C20 54 8 40 8 26 C8 16 16 8 26 8 C34 8 42 14 50 24 C58 14 66 8 74 8 C84 8 92 16 92 26 C92 40 80 54 50 78Z" fill="none" stroke="url(#g1)" stroke-width="3" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="right-title">Vida</h3>
+            <p class="right-desc">El derecho más fundamental. Nadie —individuo, gobierno o mayoría— puede arrebatar la vida de otro arbitrariamente. Cada persona es <strong>"propiedad de Dios"</strong> y no tiene derecho a destruirse a sí misma ni a los demás.</p>
+            <div class="right-footer">
+              <span class="right-tag">Fundamental</span>
+              <span class="right-tag">Inalienable</span>
+            </div>
+          </div>
+          <div class="right-card glass reveal" style="--accent:#e84393">
+            <div class="right-card-glow"></div>
+            <div class="right-icon-wrap">
+              <svg viewBox="0 0 100 100" class="right-svg">
+                <defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c2185b"/><stop offset="100%" stop-color="#e84393"/></linearGradient></defs>
+                <path d="M16 52 Q30 24 50 12 Q70 24 84 52" fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M16 52 Q30 42 50 30 Q70 42 84 52" fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M50 30 L50 72" stroke="url(#g2)" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="right-title">Libertad</h3>
+            <p class="right-desc">Libertad para <strong>actuar según la propia voluntad</strong>, dentro de los límites de la ley natural. La libertad no es libertinaje: termina donde comienza el derecho del otro.</p>
+            <div class="right-footer">
+              <span class="right-tag">Autonomía</span>
+              <span class="right-tag">Límites</span>
+            </div>
+          </div>
+          <div class="right-card glass reveal" style="--accent:#e84393">
+            <div class="right-card-glow"></div>
+            <div class="right-icon-wrap">
+              <svg viewBox="0 0 100 100" class="right-svg">
+                <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c2185b"/><stop offset="100%" stop-color="#e84393"/></linearGradient></defs>
+                <path d="M14 50 L50 12 L86 50" fill="none" stroke="url(#g3)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="26" y="46" width="48" height="40" rx="3" fill="none" stroke="url(#g3)" stroke-width="3"/>
+                <rect x="38" y="58" width="24" height="28" rx="2" fill="none" stroke="url(#g3)" stroke-width="3"/>
+                <circle cx="56" cy="72" r="2.5" fill="url(#g3)"/>
+              </svg>
+            </div>
+            <h3 class="right-title">Propiedad</h3>
+            <p class="right-desc">La propiedad es <strong>el fruto del trabajo</strong>. Lo que una persona extrae de la naturaleza y transforma con su esfuerzo le pertenece. El derecho a la propiedad es sagrado y el gobierno existe para protegerlo.</p>
+            <div class="right-footer">
+              <span class="right-tag">Trabajo</span>
+              <span class="right-tag">Derecho civil</span>
+            </div>
+          </div>
+        </div>
+        <div class="rights-doc reveal">
+          <figure class="doc-figure">
+            <img src="img/dos-tratados.jpg" alt="Portada original de los Dos Tratados sobre el Gobierno Civil" loading="lazy" width="640" height="980" />
+            <figcaption>Portada original: <em>Two Treatises of Government</em> (Londres, 1690)</figcaption>
+          </figure>
+          <blockquote class="blockquote glass">
+            <p>"El gran y principal fin de la unión de los hombres en comunidades políticas es la <strong>preservación de la propiedad</strong>. Ningún decreto arbitrario de un superior tiene derecho a disponer de la propiedad del súbdito."</p>
+            <cite>— John Locke, <em>Segundo Tratado sobre el Gobierno Civil</em></cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+    <section id="contrato" class="panel" aria-label="Contrato social" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">05</span>
+        <h2 class="section-title">Contrato Social</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">El pacto voluntario que da origen a la sociedad civil y al gobierno legítimo.</p>
+      </div>
+      <div class="panel-scroll">
+        <div class="contract-flow reveal">
+          <p>Locke imagina un <strong>estado de naturaleza</strong> donde los seres humanos son libres, iguales y racionales, pero donde la falta de un juez imparcial, de leyes conocidas y de un poder que ejecute la justicia genera inseguridad. Para resolver estos <strong>"inconvenientes"</strong>, los individuos deciden <strong>voluntariamente</strong> celebrar un pacto: el contrato social.</p>
+          <p>A diferencia de Hobbes, Locke no cree que el contrato implique la entrega total de la libertad. Los individuos <strong>ceden solo el poder de castigar</strong> —no sus derechos fundamentales— y establecen un gobierno cuyos poderes están <strong>estrictamente limitados</strong>.</p>
+        </div>
+        <div class="contract-steps" aria-label="Proceso del contrato social">
+          <div class="cstep reveal" style="--i:0">
+            <div class="cstep-num">1</div>
+            <div class="cstep-body glass">
+              <h4>Estado de Naturaleza</h4>
+              <p>Libertad e igualdad plenas, pero con inseguridad por la ausencia de una autoridad común que juzgue y castigue.</p>
+            </div>
+          </div>
+          <div class="cstep-arrow" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <div class="cstep reveal" style="--i:1">
+            <div class="cstep-num">2</div>
+            <div class="cstep-body glass">
+              <h4>Pacto Social</h4>
+              <p>Acuerdo voluntario y unánime para formar una comunidad política. Cada individuo cede el poder de castigar a cambio de protección.</p>
+            </div>
+          </div>
+          <div class="cstep-arrow" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <div class="cstep reveal" style="--i:2">
+            <div class="cstep-num">3</div>
+            <div class="cstep-body glass">
+              <h4>Gobierno Civil</h4>
+              <p>Autoridad limitada, dividida en poderes, que gobierna con el consentimiento de los gobernados. Si la traiciona, el pueblo tiene derecho a rebelarse.</p>
+            </div>
+          </div>
+        </div>
+        <div class="contract-pillars reveal">
+          <div class="pillar glass">
+            <span class="pillar-icon">🔑</span>
+            <h4>Consentimiento</h4>
+            <p>El gobierno solo es legítimo si cuenta con el <strong>consentimiento</strong> de los gobernados.</p>
+          </div>
+          <div class="pillar glass">
+            <span class="pillar-icon">🔄</span>
+            <h4>Resistencia</h4>
+            <p>Si el gobierno actúa como tirano, el pueblo tiene el <strong>derecho a deponerlo</strong>.</p>
+          </div>
+          <div class="pillar glass">
+            <span class="pillar-icon">📏</span>
+            <h4>Gobierno Limitado</h4>
+            <p>El poder está limitado por la <strong>ley natural</strong> y por los fines para los que fue creado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="poderes" class="panel" aria-label="División de poderes" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">06</span>
+        <h2 class="section-title">División de Poderes</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">El germen del equilibrio político: Locke, precursor de la separación de poderes moderna.</p>
+      </div>
+      <div class="panel-scroll">
+        <div class="powers-intro reveal">
+          <p>Locke fue el primer filósofo en formular la necesidad de <strong>dividir el poder político</strong> para evitar la tiranía. Su modelo tripartito sentó las bases que <strong>Montesquieu</strong> desarrollaría después y que los <strong>padres fundadores de Estados Unidos</strong> incorporarían a la Constitución de 1787.</p>
+        </div>
+        <div class="powers-showcase">
+          <div class="pow-card glass reveal">
+            <div class="pow-badge">Poder Supremo</div>
+            <div class="pow-icon">
+              <svg viewBox="0 0 80 80"><path d="M22 10 L58 10 L58 70 L22 70 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><line x1="30" y1="26" x2="58" y2="26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="38" x2="58" y2="38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="50" x2="48" y2="50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Legislativo</h3>
+            <p>Es el <strong>poder supremo</strong>, pero no absoluto. Crea las leyes y debe gobernar conforme al bien público. Reside en un <strong>parlamento representativo</strong>.</p>
+            <div class="pow-footer">
+              <span>Crea las leyes</span>
+              <span>Asamblea representativa</span>
+            </div>
+          </div>
+          <div class="pow-card glass reveal">
+            <div class="pow-badge">Poder Continuo</div>
+            <div class="pow-icon">
+              <svg viewBox="0 0 80 80"><path d="M18 36 L40 12 L62 36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><rect x="22" y="36" width="36" height="34" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="34" y="52" width="12" height="18" rx="1" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+            </div>
+            <h3>Ejecutivo</h3>
+            <p><strong>Aplica y hace cumplir</strong> las leyes. Incluye el poder <strong>federativo</strong> (relaciones internacionales, guerra y paz). Está subordinado al legislativo.</p>
+            <div class="pow-footer">
+              <span>Aplica las leyes</span>
+              <span>Prerrogativa limitada</span>
+            </div>
+          </div>
+          <div class="pow-card glass reveal">
+            <div class="pow-badge">Poder Imparcial</div>
+            <div class="pow-icon">
+              <svg viewBox="0 0 80 80"><line x1="40" y1="10" x2="40" y2="46" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M18 46 L30 24 L34 36 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M62 46 L50 24 L46 36 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><line x1="34" y1="36" x2="46" y2="36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Judicial</h3>
+            <p>Locke sentó las bases al exigir <strong>jueces imparciales</strong> y conocidos que resuelvan conflictos según leyes establecidas. Sin jueces independientes, no hay libertad real.</p>
+            <div class="pow-footer">
+              <span>Interpreta las leyes</span>
+              <span>Jueces imparciales</span>
+            </div>
+          </div>
+        </div>
+        <div class="powers-diagram reveal" aria-label="Diagrama de relación entre poderes">
+          <div class="pd-item glass"><strong>Legislativo</strong><span>Crea normas</span></div>
+          <div class="pd-arrows"><span>controla</span><span>→</span></div>
+          <div class="pd-item glass"><strong>Ejecutivo</strong><span>Ejecuta normas</span></div>
+          <div class="pd-arrows"><span>revisa</span><span>→</span></div>
+          <div class="pd-item glass"><strong>Judicial</strong><span>Interpreta normas</span></div>
+        </div>
+      </div>
+    </section>
+    <section id="proposito" class="panel" aria-label="Propósito del poder político" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">07</span>
+        <h2 class="section-title">Propósito del Poder Político</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">¿Para qué existe el gobierno según Locke? La respuesta que cambió la historia.</p>
+      </div>
+      <div class="panel-scroll">
+        <div class="purpose-intro reveal">
+          <p>Para Locke, el poder político no es un fin en sí mismo. Es un <strong>fideicomiso</strong> (<em>trust</em>) que el pueblo otorga al gobierno para que cumpla fines específicos. Cuando el gobierno se desvía de esos fines, el pueblo tiene derecho a revocar ese mandato.</p>
+        </div>
+        <div class="purpose-grid">
+          <div class="purp-card reveal" style="--accent:#e84393">
+            <div class="purp-num">1</div>
+            <h4>Proteger los Derechos Naturales</h4>
+            <p>El fin principal del gobierno es <strong>salvaguardar la vida, la libertad y la propiedad</strong>. Estos derechos no los otorga el Estado; el Estado existe para protegerlos.</p>
+          </div>
+          <div class="purp-card reveal" style="--accent:#e84393">
+            <div class="purp-num">2</div>
+            <h4>Establecer Leyes Claras</h4>
+            <p>Sin leyes escritas, conocidas y aplicadas imparcialmente, no hay libertad, sino arbitrariedad.</p>
+          </div>
+          <div class="purp-card reveal" style="--accent:#e84393">
+            <div class="purp-num">3</div>
+            <h4>Juzgar con Imparcialidad</h4>
+            <p>Proveer <strong>jueces independientes</strong> que resuelvan conflictos según las leyes. Sin esto, cada persona tendría que hacerse justicia por su mano.</p>
+          </div>
+          <div class="purp-card reveal" style="--accent:#e84393">
+            <div class="purp-num">4</div>
+            <h4>Garantizar el Bien Común</h4>
+            <p>El poder debe ejercerse en beneficio de <strong>toda la sociedad</strong>, no de intereses particulares. Es un trust que el pueblo puede revocar.</p>
+          </div>
+          <div class="purp-card reveal" style="--accent:#e84393">
+            <div class="purp-num">5</div>
+            <h4>Preservar la Libertad Civil</h4>
+            <p>El gobierno debe proteger la libertad de los ciudadanos frente a la opresión, tanto externa como interna.</p>
+          </div>
+          <div class="purp-card reveal" style="--accent:#e84393">
+            <div class="purp-num">6</div>
+            <h4>Actuar con Prerrogativa Limitada</h4>
+            <p>En casos no previstos por la ley, el ejecutivo puede actuar con <strong>prerrogativa</strong>, siempre buscando el bien público.</p>
+          </div>
+        </div>
+        <blockquote class="blockquote reveal glass">
+          <p>"El poder político no es más que el poder natural que cada hombre tenía en el estado de naturaleza y que cedió a la comunidad para su propia protección."</p>
+          <cite>— John Locke, <em>Segundo Tratado sobre el Gobierno Civil</em></cite>
+        </blockquote>
+      </div>
+    </section>
+    <section id="actualidad" class="panel" aria-label="Aplicación actual" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">08</span>
+        <h2 class="section-title">Aplicación Actual</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Más de 300 años después, las ideas de Locke siguen vigentes en nuestras democracias.</p>
+      </div>
+      <div class="panel-scroll">
+        <div class="current-showcase">
+          <div class="current-card glass reveal">
+            <div class="curr-icon">
+              <svg viewBox="0 0 60 60"><rect x="10" y="24" width="40" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><line x1="30" y1="24" x2="30" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M22 28 L30 38 L38 28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Democracia Representativa</h3>
+            <p>El <strong>consentimiento de los gobernados</strong> es el corazón de la democracia. Cada elección, cada voto, es un recordatorio del contrato social lockeano.</p>
+          </div>
+          <div class="current-card glass reveal">
+            <div class="curr-icon">
+              <svg viewBox="0 0 60 60"><rect x="12" y="8" width="36" height="44" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="30" cy="22" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M20 44 Q20 34 30 34 Q40 34 40 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Derechos Humanos</h3>
+            <p>La <strong>Declaración Universal de los Derechos Humanos</strong> (1948) es lockeana: "Todos los seres humanos nacen libres e iguales en dignidad y derechos".</p>
+          </div>
+          <div class="current-card glass reveal">
+            <div class="curr-icon">
+              <svg viewBox="0 0 60 60"><path d="M8 14 L30 14 L30 52 L8 52 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M52 14 L30 14 L30 52 L52 52 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><line x1="16" y1="24" x2="26" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="32" x2="26" y2="32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="34" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="34" y1="32" x2="44" y2="32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Constituciones Modernas</h3>
+            <p>La <strong>división de poderes</strong> de Locke está en casi todas las constituciones democráticas. La Constitución de EE.UU. (1787) es el ejemplo más directo.</p>
+          </div>
+          <div class="current-card glass reveal">
+            <div class="curr-icon">
+              <svg viewBox="0 0 60 60"><path d="M10 16 L50 16 Q54 16 54 20 L54 38 Q54 42 50 42 L28 42 L18 52 L20 42 L10 42 Q6 42 6 38 L6 20 Q6 16 10 16Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><line x1="16" y1="26" x2="44" y2="26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="34" x2="34" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Libertad de Expresión</h3>
+            <p>Locke defendió la <strong>tolerancia religiosa</strong> y la libertad de conciencia. Su argumento —el Estado no debe forzar las creencias— es la base de la libertad de expresión moderna.</p>
+          </div>
+          <div class="current-card glass reveal">
+            <div class="curr-icon">
+              <svg viewBox="0 0 60 60"><circle cx="30" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><line x1="30" y1="20" x2="30" y2="38" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="26" x2="18" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="26" x2="42" y2="20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="38" x2="22" y2="52" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="38" x2="38" y2="52" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Individualismo Moral</h3>
+            <p>El <strong>individuo</strong> como unidad básica de la sociedad, con derechos que el Estado debe respetar, es la herencia más profunda de Locke.</p>
+          </div>
+          <div class="current-card glass reveal">
+            <div class="curr-icon">
+              <svg viewBox="0 0 60 60"><rect x="10" y="10" width="40" height="40" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><line x1="10" y1="22" x2="50" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="34" x2="50" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="46" x2="50" y2="46" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="10" x2="22" y2="50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="34" y1="10" x2="34" y2="50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Límites al Poder</h3>
+            <p>El principio de que el <strong>poder debe estar limitado</strong> por la ley y los derechos individuales es el fundamento del Estado de Derecho.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="caso-actual" class="panel" aria-label="Caso actual analizado" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">09</span>
+        <h2 class="section-title">Caso Actual · Análisis Lockeano</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Una noticia real analizada desde la perspectiva de John Locke.</p>
+      </div>
+      <div class="panel-scroll">
+        <div class="news-wrapper reveal">
+          <div class="news-badge">📰 NOTICIA REAL · ARGENTINA</div>
+          <article class="news-article glass">
+            <div class="news-header">
+              <div class="news-source">
+                <span class="news-outlet">Senado de la Nación Argentina</span>
+                <span class="news-date">25 de junio de 2026</span>
+              </div>
+              <h3>El Senado debate el proyecto de Ley de Inviolabilidad de la Propiedad Privada impulsado por el Gobierno de Milei</h3>
+            </div>
+            <div class="news-body">
+              <p><strong>BUENOS AIRES</strong> — El Senado argentino comenzó a debatir el proyecto de ley de <strong>Inviolabilidad de la Propiedad Privada</strong>, presentado por el Poder Ejecutivo el 27 de marzo. La iniciativa, impulsada por el ministro Federico Sturzenegger, propone reformar el régimen de expropiaciones vigente desde 1977.</p>
+              <p>Entre los cambios clave, la ley exige que la declaración de <strong>utilidad pública</strong> sea de interpretación restrictiva y debe identificar "en forma específica y concreta" el fin perseguido. Además, establece que la indemnización se calcule a <strong>valor de mercado</strong> —no al valor fiscal— e incorpora el <strong>lucro cesante</strong> como concepto indemnizable.</p>
+              <p>El proyecto también dispone que el bien expropiado no pase a manos del Estado hasta que se pague íntegramente la indemnización, actualizada por inflación más una tasa de interés comercial. La iniciativa incluye además la aceleración de desalojos por usurpación mediante juicio sumarísimo y modificaciones a la ley de tierras rurales y de manejo del fuego.</p>
+            </div>
+            <details class="news-expand">
+              <summary>Ver evolución del caso</summary>
+              <p>La sesión del 25 de junio también trató la interpelación al jefe de Gabinete Manuel Adorni. El oficialismo consiguió los votos para impedir el avance de ese pedido y avanzar con el debate del proyecto de propiedad privada. La iniciativa modifica leyes emblemáticas del kirchnerismo y busca blindar la seguridad jurídica.</p>
+            </details>
+          </article>
+        </div>
+        <div class="analysis reveal glass">
+          <h3>🔍 Análisis desde el pensamiento de John Locke</h3>
+          <div class="analysis-grid">
+            <div class="analysis-item">
+              <span class="a-num">1</span>
+              <div>
+                <strong>Derecho a la propiedad como derecho natural</strong>
+                <p>Locke consideraba la propiedad un derecho natural anterior al Estado. Esta ley busca reforzar precisamente ese principio: que el Estado no crea el derecho de propiedad, sino que debe reconocerlo y protegerlo como un límite infranqueable al poder político.</p>
+              </div>
+            </div>
+            <div class="analysis-item">
+              <span class="a-num">2</span>
+              <div>
+                <strong>Indemnización justa como fruto del trabajo</strong>
+                <p>Para Locke, la propiedad es el fruto del trabajo. Al exigir indemnización a valor de mercado más lucro cesante, el proyecto reconoce que el valor de un bien no es solo su precio fiscal, sino todo el trabajo y la productividad que incorpora.</p>
+              </div>
+            </div>
+            <div class="analysis-item">
+              <span class="a-num">3</span>
+              <div>
+                <strong>Límites al poder político</strong>
+                <p>Locke fue el primero en formular que el poder debe estar limitado. Exigir que toda expropiación sea "idónea, necesaria y proporcional" es lockeano puro: el gobierno no puede tomar la propiedad de un ciudadano por cualquier motivo ni de cualquier manera.</p>
+              </div>
+            </div>
+            <div class="analysis-item">
+              <span class="a-num">4</span>
+              <div>
+                <strong>Consentimiento y debido proceso</strong>
+                <p>Que el Estado no pueda tomar posesión del bien sin pagar primero la indemnización refleja la idea lockeana de que el gobierno es un fideicomiso y no un soberano absoluto. El pago previo garantiza que el consentimiento del propietario no sea simplemente atropellado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="frases" class="panel" aria-label="Frases célebres" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">10</span>
+        <h2 class="section-title">Frases Célebres</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Las palabras de Locke que siguen resonando tres siglos después.</p>
+      </div>
+      <div class="quotes-carousel reveal" role="region" aria-label="Carrusel de frases">
+        <div class="quote-track" id="quoteTrack">
+          <blockquote class="quote-slide glass">
+            <p>"La libertad del hombre bajo un gobierno consiste en tener una regla fija por la cual vivir, común a todos los miembros de esa sociedad."</p>
+            <cite>— Segundo Tratado sobre el Gobierno Civil</cite>
+          </blockquote>
+          <blockquote class="quote-slide glass">
+            <p>"Nadie puede tener derecho a someternos a su poder arbitrario. No hay poder legítimo que no tenga su origen en el consentimiento del pueblo."</p>
+            <cite>— Segundo Tratado sobre el Gobierno Civil</cite>
+          </blockquote>
+          <blockquote class="quote-slide glass">
+            <p>"La tolerancia hacia los que tienen opiniones religiosas diferentes es tan conforme al Evangelio como a la razón humana."</p>
+            <cite>— Carta sobre la Tolerancia</cite>
+          </blockquote>
+          <blockquote class="quote-slide glass">
+            <p>"Dondequiera que el poder se ejerza de manera arbitraria, allí no hay sociedad civil."</p>
+            <cite>— Segundo Tratado sobre el Gobierno Civil</cite>
+          </blockquote>
+          <blockquote class="quote-slide glass">
+            <p>"El entendimiento humano es como un cuarto oscuro que recibe luz a través de las ventanas de los sentidos."</p>
+            <cite>— Ensayo sobre el Entendimiento Humano</cite>
+          </blockquote>
+        </div>
+        <div class="quote-controls">
+          <button id="quotePrev" aria-label="Anterior">‹</button>
+          <div class="quote-dots" id="quoteDots"></div>
+          <button id="quoteNext" aria-label="Siguiente">›</button>
+        </div>
+      </div>
+    </section>
+    <section id="curiosidades" class="panel" aria-label="Curiosidades sobre Locke" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">11</span>
+        <h2 class="section-title">Curiosidades</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Datos fascinantes que pocos conocen sobre la vida y obra de John Locke.</p>
+      </div>
+      <div class="panel-scroll">
+        <div class="curiosities-grid">
+          <article class="curio-card glass reveal">
+            <div class="curio-num">01</div>
+            <h3>Médico y cirujano</h3>
+            <p>Locke fue un <strong>médico</strong> hábil. En 1668 drenó un absceso hepático del conde de Shaftesbury usando un tubo de plata que diseñó él mismo.</p>
+          </article>
+          <article class="curio-card glass reveal">
+            <div class="curio-num">02</div>
+            <h3>Exiliado y clandestino</h3>
+            <p>Pasó <strong>cinco años exiliado</strong> en Holanda bajo identidad vigilada. Sus obras circulaban en secreto entre círculos liberales ingleses.</p>
+          </article>
+          <article class="curio-card glass reveal">
+            <div class="curio-num">03</div>
+            <h3>Inspiró la Declaración de Independencia</h3>
+            <p>Thomas Jefferson tomó frases de Locke para la Declaración de Independencia. "Vida, Libertad y búsqueda de la Felicidad" adapta su "Vida, Libertad y Propiedad".</p>
+          </article>
+          <article class="curio-card glass reveal">
+            <div class="curio-num">04</div>
+            <h3>Tabula rasa</h3>
+            <p>La mente humana al nacer es una <strong>pizarra en blanco</strong>. No hay ideas innatas: todo conocimiento proviene de la experiencia sensorial.</p>
+          </article>
+          <article class="curio-card glass reveal">
+            <div class="curio-num">05</div>
+            <h3>Tolerancia religiosa</h3>
+            <p>En su <em>Carta sobre la Tolerancia</em> (1689), Locke argumentó que el <strong>Estado no debe interferir en las creencias religiosas</strong>.</p>
+          </article>
+          <article class="curio-card glass reveal">
+            <div class="curio-num">06</div>
+            <h3>Influyó en la Revolución Francesa</h3>
+            <p>La <strong>Declaración de los Derechos del Hombre</strong> (1789) está claramente influida por su pensamiento sobre derechos naturales y soberanía popular.</p>
+          </article>
+          <article class="curio-card glass reveal">
+            <div class="curio-num">07</div>
+            <h3>Nunca se casó</h3>
+            <p>Locke permaneció <strong>soltero toda su vida</strong>. Vivió sus últimos años en Oates, Essex, en casa de sus amigos Sir Francis y Lady Damaris Masham.</p>
+          </article>
+          <article class="curio-card glass reveal">
+            <div class="curio-num">08</div>
+            <h3>Publicaba en el anonimato</h3>
+            <p>Por miedo a represalias, la mayoría de sus obras se publicaron <strong>sin su nombre</strong>. Solo después de la Revolución Gloriosa reconoció su autoría.</p>
+          </article>
+          <article class="curio-card glass reveal">
+            <div class="curio-num">09</div>
+            <h3>Sus obras fueron quemadas</h3>
+            <p>En 1703, Oxford condenó y <strong>quemó públicamente</strong> algunos de sus escritos. Hoy, Oxford lo honra como uno de sus pensadores más ilustres.</p>
+          </article>
+          <article class="curio-card glass reveal">
+            <div class="curio-num">10</div>
+            <h3>Influyó en la economía moderna</h3>
+            <p>Sus ideas sobre <strong>propiedad y trabajo</strong> como fuente de valor influyeron en Adam Smith y en los fundamentos del capitalismo moderno.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="conclusion" class="panel" aria-label="Conclusión" role="tabpanel">
+      <div class="section-header reveal">
+        <span class="section-number">12</span>
+        <h2 class="section-title">Conclusión</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">El legado inmortal de John Locke: por qué su pensamiento sigue siendo esencial hoy.</p>
+      </div>
+      <div class="panel-scroll">
+        <div class="conclusion-grid">
+          <div class="conclusion-text reveal">
+            <p>John Locke fue el <strong>arquitecto del mundo moderno</strong>. Sus ideas sobre los derechos naturales, el contrato social, la división de poderes y el gobierno limitado se convirtieron en los cimientos de la democracia liberal.</p>
+            <p>En un mundo donde aún debatimos los límites del poder estatal, la protección de los derechos humanos y el equilibrio entre libertad y seguridad, el pensamiento de Locke sigue siendo <strong>sorprendentemente vigente</strong>. Cada vez que un ciudadano exige el respeto de sus derechos, cada vez que un tribunal frena un abuso del poder, el espíritu de Locke está presente.</p>
+            <p>Comprender a Locke es comprender las bases de nuestra civilización. Su pregunta fundamental —<strong>¿cómo construir una sociedad justa que respete la dignidad de cada persona?</strong>— sigue siendo la pregunta más importante de la política.</p>
+            <p>En un momento histórico donde la democracia enfrenta nuevos desafíos, volver a Locke no es un ejercicio académico: es una <strong>necesidad</strong>.</p>
+          </div>
+          <div class="conclusion-stats reveal">
+            <div class="cstat glass">
+              <span class="cstat-num counter" data-target="1632">0</span>
+              <span class="cstat-label">Año de nacimiento</span>
+            </div>
+            <div class="cstat glass">
+              <span class="cstat-num counter" data-target="72">0</span>
+              <span class="cstat-label">Años de vida</span>
+            </div>
+            <div class="cstat glass">
+              <span class="cstat-num counter" data-target="1689">0</span>
+              <span class="cstat-label">Obra más importante</span>
+            </div>
+            <div class="cstat glass">
+              <span class="cstat-num"><span class="counter" data-target="336">0</span><span class="counter-plus">+</span></span>
+              <span class="cstat-label">Años de vigencia</span>
+            </div>
+          </div>
+        </div>
+        <blockquote class="blockquote reveal glass">
+          <p>"Dondequiera que el poder se ejerza de manera arbitraria, allí no hay sociedad civil. El fin del gobierno es el bien de la humanidad."</p>
+          <cite>— John Locke, <em>Segundo Tratado sobre el Gobierno Civil</em></cite>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+  <div class="section-nav" id="sectionNav">
+    <button class="sn-prev" id="snPrev" aria-label="Sección anterior">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="sn-counter" id="snCounter">
+      <span id="snCurrent">1</span>
+      <span class="sn-sep">/</span>
+      <span id="snTotal">12</span>
+    </div>
+    <button class="sn-next" id="snNext" aria-label="Sección siguiente">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <span class="footer-logo">✦ LOCKE</span>
+          <p>Exposición digital para la materia de <strong>Política y Ciudadanía</strong>.</p>
+          <p class="footer-desc">Contenido académico con fines educativos. Las ideas de John Locke explicadas para estudiantes de nivel secundario.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Enlaces del pie">
+          <a href="#biografia" data-section="biografia">Biografía</a>
+          <a href="#contexto" data-section="contexto">Contexto histórico</a>
+          <a href="#derechos" data-section="derechos">Derechos naturales</a>
+          <a href="#contrato" data-section="contrato">Contrato social</a>
+          <a href="#poderes" data-section="poderes">División de poderes</a>
+          <a href="#actualidad" data-section="actualidad">Actualidad</a>
+          <a href="#curiosidades" data-section="curiosidades">Curiosidades</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 · Trabajo escolar · Todos los contenidos son con fines educativos</p>
+        <p>Hecho con dedicación para obtener la mejor nota 🎓</p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
