@@ -1,3 +1,30 @@
+:root {
+  --rose-dark: #1a0812;
+  --rose-2: #240e1a;
+  --rose-3: #3a1528;
+  --rose-4: #4d1d35;
+  --pink: #e84393;
+  --pink-light: #f8a4c8;
+  --pink-dark: #c2185b;
+  --pink-glow: rgba(232, 67, 147, 0.25);
+  --white: #f5e4ea;
+  --white-80: rgba(245, 228, 234, 0.8);
+  --white-60: rgba(245, 228, 234, 0.6);
+  --white-40: rgba(245, 228, 234, 0.4);
+  --glass-bg: rgba(58, 21, 40, 0.55);
+  --glass-border: rgba(232, 67, 147, 0.12);
+  --glass-border-hover: rgba(232, 67, 147, 0.35);
+  --glass-shadow: rgba(0, 0, 0, 0.4);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+  --navbar-height: 68px;
+}
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html, body {
   height: 100%;
